@@ -1,51 +1,26 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Python 웹프로젝트 v1</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/webproject.css">
+{% extends 'layout/base.html' %}
 
-    <style>
-        /* 로그인한 회원의 정보 테이블 배치 */
-        table { border: 1px solid red;
-            margin: 120px auto }
-        /* 회원 저옵 각 행에 여백 주기 */
-        th, td { padding: 5px }
+{% block title %}member/myinfo{% endblock %}
 
-        /* 회원 정보 테이블의 제목 정렬하기 */
-        th { text-align: right }
+{% block style %}
+/* 로그인한 회원의 정보 테이블 배치 */
+table { border: 1px solid red;
+    margin: 120px auto }
+/* 회원 저옵 각 행에 여백 주기 */
+th, td { padding: 5px }
 
-    </style>
-</head>
-<body>
-    <div id="wrap">
-        <header>
-            <h1>Python 웹프로젝트 v1</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="join.html">회원가입</a></li>
-                    <li><a href="login.html">로그인</a></li>
-                    <li><a href='board.html'>게시판</a></li>
-                    <li><a href="myinfo.html">회원정보</a></li>
-                </ul>
-            </nav>
-            <hr>
-        </header>
-        <div id="main">
-            <h2>회원정보</h2>
-            <table>
-                <tr><td>아이디</td><td>woogi</td></tr>
-                <tr><td>이름</td><td>니ㅑ아ㅗㄹ나ㅣ</td></tr>
-                <tr><td>이메일</td><td>woogi@gmail.com</td></tr>
-                <tr><td>가입일</td><td>2022-05-27 12:17:36</td></tr>
-            </table>
-        </div>
-        <footer>
-            <hr>
-            <span>copyright &copy; 2022. woogi. All Rights Reserved.</span>
-        </footer>
-    </div>
-</body>
-</html>
+/* 회원 정보 테이블의 제목 정렬하기 */
+th { text-align: right }
+{% endblock %}
+
+{% block content %}
+    <h2>회원정보</h2>
+    <table>
+        <tr><td>아이디</td><td>woogi</td></tr>
+        <tr><td>이름</td><td>니ㅑ아ㅗㄹ나ㅣ</td></tr>
+        <tr><td>이메일</td><td>woogi@gmail.com</td></tr>
+        <tr><td>가입일</td><td>2022-05-27 12:17:36</td></tr>
+    </table>
+{% endblock %}
+
+{% block jscript %}{% endblock %}
