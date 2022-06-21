@@ -4,23 +4,24 @@
 
 {% block style %}
 /* 로그인한 회원의 정보 테이블 배치 */
-table { border: 1px solid red;
-    margin: 120px auto }
-/* 회원 저옵 각 행에 여백 주기 */
-th, td { padding: 5px }
+table { /*border: 1px solid red;*/
+   margin: 120px auto }
+
+/* 회원 정보 각 행에 여백 주기 */
+th, td { padding: 10px }
 
 /* 회원 정보 테이블의 제목 정렬하기 */
 th { text-align: right }
 {% endblock %}
 
 {% block content %}
-    <h2>회원정보</h2>
-    <table>
-        <tr><td>아이디</td><td>woogi</td></tr>
-        <tr><td>이름</td><td>니ㅑ아ㅗㄹ나ㅣ</td></tr>
-        <tr><td>이메일</td><td>woogi@gmail.com</td></tr>
-        <tr><td>가입일</td><td>2022-05-27 12:17:36</td></tr>
-    </table>
+        <h2>회원정보</h2>
+        <table>
+            <tr><th>아이디</th><td>zzyzzy</td></tr>
+            <tr><th>이름</th><td>으하하하</td></tr>
+            <tr><th>이메일</th><td>zzyzzy@naver.com</td></tr>
+            <tr><th>가입일</th><td>2022-05-27 12:17:36</td></tr>
+        </table>
 {% endblock %}
 
 {% block jscript %}{% endblock %}
