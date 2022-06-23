@@ -3,7 +3,10 @@ from datetime import datetime
 from django.db import models
 
 # Create your models here.
-class Member(models.Medel):
+
+# django 에서 폼 데이터를 다루는 방법은 크게 2가지 - Medel, MedelForm
+# Member 테이블의 구조와 유사하게 member 모델 정리 - Model
+class Member(models.Model):
     id=models.AutoField(primary_key=True)
     userid=models.CharField(max_length=18, unique=True)
     passwd=models.CharField(max_length=18)
