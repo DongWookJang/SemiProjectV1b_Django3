@@ -1,51 +1,59 @@
+{# Django template language #}
+{# Django의 템플릿에 사용할 수 있는 특수한 언어 #}
+{# => 템플릿 변수, 템플릿 태그, 템플릿 필터, 템플릿 코멘트 #}
+{# 템플릿 변수 : {{ 변수명 또는 객체명.속성명 }} #}
+{# 템플릿 태그 : {% 태그명 또는 코드명 %} #}
+{# 템플릿 필터 : 변수의 값을 특정한 형식으로 변경 {{ 변수명|필터명 }} #}
+{# 템플릿 코멘트 : {% commeng %} 여러중 주석 {% endcomment %} #}
+
+
 {% extends 'layout/base.html' %}
 
 {% block title %}member/join{% endblock %}
 
 {% block style %}
-/* 메인 영역 크기 지정 */
-#main { height: auto; min-height: 500px }
+    /* 메인 영역 크기 지정 */
+    #main { height: auto; min-height: 500px }
 
-/* 링크관련 스타일시트 */
-a { font-weight: bold }
-a:link { text-decoration: none; color: black }
-a:visited { text-decoration: none; color: black }
-a:hover { text-decoration: underline; color: orange }
-a:active { text-decoration: underline; color: orange }
+    /* 링크관련 스타일시트 */
+    a { font-weight: bold }
+    a:link { text-decoration: none; color: black }
+    a:visited { text-decoration: none; color: black }
+    a:hover { text-decoration: underline; color: orange }
+    a:active { text-decoration: underline; color: orange }
 
-/* 컨텐츠 영역 너비 지정 및 정중앙 배치 */
-#wrap { /*border: 1px solid red;*/ width: 1250px;
-    margin: 0 auto }
+    /* 컨텐츠 영역 너비 지정 및 정중앙 배치 */
+    #wrap { /*border: 1px solid red;*/ width: 1250px;
+        margin: 0 auto }
 
-/* 상단 로고 배치 */
-header h1 { margin-bottom: 45px }
+    /* 상단 로고 배치 */
+    header h1 { margin-bottom: 45px }
 
-/* 상단메뉴 수평 배치 */
-ul { list-style: none; padding: 0 }
-ul li { display: inline-block;
-        margin-left: 155px }
+    /* 상단메뉴 수평 배치 */
+    ul { list-style: none; padding: 0 }
+    ul li { display: inline-block;
+            margin-left: 155px }
 
-/* 저작권 문구 가운데 정렬 */
-footer span { display: block;
-           text-align: center }
+    /* 저작권 문구 가운데 정렬 */
+    footer span { display: block;
+               text-align: center }
 
-/* 구분선 */
-hr { background: black; height: 1px; }
-/* 회원가입 폼 배치하기 */
-form { /*border: 1px solid red;*/ width: 350px;
-    margin: 150px auto; }
+    /* 구분선 */
+    hr { background: black; height: 1px; }
+        /* 회원가입 폼 배치하기 */
+    form { /*border: 1px solid red;*/ width: 350px;
+    margin: 150px auto}
 
-/* 회원가입 폼요소에 여백주기 */
-form div { margin-top: 10px }
+    /* 회원가입 폼요소에 여백주기 */
+    form div { margin-top: 10px }
 
-/* 회원가입 폼 라벨에 너비 설정 */
-/* display - 인라인요소를 블록요소로 변경 */
-form label { display:inline-block;
-    width: 120px; text-align: right;
-    font-weight: bold }
+    /* 회원가입 폼 라벨에 너비 설정 */
+    /* display = 인라인요소를 블록요소로 변경 */
+    form label { display:inline-block;
+        width: 120px; text-align: right; font-weight:bold}
 
-/* 회원가입 폼 버튼 위치 설정 */
-form button:first-child { margin-left: 125px }
+    /* 회원가입 폼 버튼 위치 설정 */
+    form button:first-child { margin-left: 125px }
 {% endblock %}
 
 {% block content %}
