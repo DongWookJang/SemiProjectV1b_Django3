@@ -1,36 +1,29 @@
 {% extends 'layout/base.html' %}
 
+{% comment %}
+    HTTP의 특징 중 하나는 stateless(connectionless)임
+    즉, 클라이언트가 서버에 요청을 보내고 서버가 응답을 하면
+    클라이언트는 그 응답을 받자마자 연결이 끊어진다는 의미
+    왜냐하면, 웹서버는 다수의 사용자가 정보를 요청하는 경우가 많기 때문에
+    사용자와의 연결을 유지한다면, 서버의 리소스가 많이 필요할 수 있음
+    따라서, HTTP의 경우 서버가 응답하고나면 바로 연결을 끊는 이유임
+
+    cookie
+    클라이언트측 웹브라우저에 저장하는 데이터
+    브라우저 종료시 쿠키가 만료됨
+
+    session
+    서버측에 저장하는 데이터
+    세션 생성시 고유id를 같이 생성하는데,
+    이를 통해 서버에 접속하는 사용자들을 구분할 수 있음음
+    세션을 만료하려면 서버에서 직접 제거해야 함
+
+{% edcomment %}
+
 {% block title %}member/login{% endblock %}
 
 {% block style %}
-/* 메인 영역 크기 지정 */
-#main { height: auto; min-height: 500px }
 
-/* 링크관련 스타일시트 */
-a { font-weight: bold }
-a:link { text-decoration: none; color: black }
-a:visited { text-decoration: none; color: black }
-a:hover { text-decoration: underline; color: orange }
-a:active { text-decoration: underline; color: orange }
-
-/* 컨텐츠 영역 너비 지정 및 정중앙 배치 */
-#wrap { /*border: 1px solid red;*/ width: 1250px;
-    margin: 0 auto }
-
-/* 상단 로고 배치 */
-header h1 { margin-bottom: 45px }
-
-/* 상단메뉴 수평 배치 */
-ul { list-style: none; padding: 0 }
-ul li { display: inline-block;
-        margin-left: 155px }
-
-/* 저작권 문구 가운데 정렬 */
-footer span { display: block;
-           text-align: center }
-
-/* 구분선 */
-hr { background: black; height: 1px; }
 /* 로그인 폼 배치하기 */
 form { /*border: 1px solid red;*/ width: 350px;
     margin: 150px auto }
@@ -44,7 +37,9 @@ form label { display: inline-block;
 
 {% block content %}
     <h2>로그인</h2>
-    <form name="loginfrm" method="post" action="login.do">
+    <form name="loginfrm" method="post" id="loginfrm">
+        {% csrf_token %}
+        <div style="color: red">{{ error }}</div>
         <div><label for="userid">아이디</label>
             <input type="text" name="userid" id="userid">
         </div>
@@ -53,8 +48,28 @@ form label { display: inline-block;
             <input type="password" name="passwd" id="passwd"></div>
 
         <div><label></label>
-            <button type="button">로그인</button>
+            <button type="button" id="loginbtn">로그인</button>
         </div>
     </form>
 {% endblock %}
-{% block jscript %}{% endblock %}
+{% block jscript %}
+<script>
+        const loginbtn = document.querySelector('#loginbtn');
+        loginbtn.addEventListener('click', () => {
+            const userid = document.loginfrm.userid;
+            const passwd = document.loginfrm.passwd;
+
+        if (userid.value == "") {
+            alert('아이디를 입력하세요!'); userid.focus();
+            return;
+        } else if (passwd.value == '') {
+            alert('비밀번호를 입력하세요!'); passwd.focus();
+            return;
+        } else {
+            // 버튼으로 submit 기능을 수행함
+            // document.폼이름 submit()
+            document.loginfrm.submit();
+        }
+    });
+</script>
+{% endblock %}

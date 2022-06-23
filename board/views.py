@@ -6,8 +6,8 @@ def list(request):
 #                          파일명
 
 
-def views(request):
-    return render(request, 'board/views.html')
+def view(request):
+    return render(request, 'board/view.html')
 
 
 def write(request):

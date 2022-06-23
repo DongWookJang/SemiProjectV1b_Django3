@@ -3,61 +3,34 @@
 {% block title %}board/list{% endblock %}
 
 {% block style %}
-/* 메인 영역 크기 지정 */
-#main { height: auto; min-height: 500px }
 
-/* 링크관련 스타일시트 */
-a { font-weight: bold }
-a:link { text-decoration: none; color: black }
-a:visited { text-decoration: none; color: black }
-a:hover { text-decoration: underline; color: orange }
-a:active { text-decoration: underline; color: orange }
+/* 페이지네이션 가운데 정렬 */
+#pgnav { text-align: center; margin-left: -100px }
 
-/* 컨텐츠 영역 너비 지정 및 정중앙 배치 */
-#wrap { /*border: 1px solid red;*/ width: 1250px;
-    margin: 0 auto }
+/* 페이지네이션의 페이지항목 간격 재조정 */
+#pgnav li { margin-left: 10px }
 
-/* 상단 로고 배치 */
-header h1 { margin-bottom: 45px }
+/* 페이지네이션의 현재 페이지에 대한 스타일 지정 */
+.cpage { font-weight: bold; font-size: 50px;
+         color: red }
 
-/* 상단메뉴 수평 배치 */
-ul { list-style: none; padding: 0 }
-ul li { display: inline-block;
-        margin-left: 155px }
+/* 게시판 목록 테이블 가운데 정렬 */
+table { width: 60%; margin: 65px auto -10px;
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+    table-layout: fixed; }
 
-/* 저작권 문구 가운데 정렬 */
-footer span { display: block;
-           text-align: center }
+th, td { border: 1px solid black;
+    padding: 10px; text-align: center }
 
-/* 구분선 */
-hr { background: black; height: 1px; }
-        /* 페이지네이션 가운데 정렬 */
-        #pgnav { text-align: center; margin-left: -100px }
+td:nth-child(2) { white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis }
 
-        /* 페이지네이션의 페이지항목 간격 재조정 */
-        #pgnav li { margin-left: 10px }
+td:nth-child(2) a:hover { color: crimson }
+td:nth-child(2) a:active { color: crimson }
 
-        /* 페이지네이션의 현재 페이지에 대한 스타일 지정 */
-        .cpage { font-weight: bold; font-size: 50px;
-                 color: red }
-
-        /* 게시판 목록 테이블 가운데 정렬 */
-        table { width: 60%; margin: 65px auto -10px;
-            /*border: 1px solid black;*/
-            border-collapse: collapse;
-            table-layout: fixed; }
-
-        th, td { border: 1px solid black;
-            padding: 10px; text-align: center }
-
-        td:nth-child(2) { white-space: nowrap;
-            overflow: hidden; text-overflow: ellipsis }
-
-        td:nth-child(2) a:hover { color: crimson }
-        td:nth-child(2) a:active { color: crimson }
-
-        .btns { text-align: right; border-top: none;
-            border-left: none; border-right: none; }
+.btns { text-align: right; border-top: none;
+    border-left: none; border-right: none; }
 {% endblock %}
 
 {% block content %}
