@@ -7,7 +7,7 @@ from django.db import models
 from member.models import Member
 
 
-class board(models.Model):
+class Board(models.Model):
     id=models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     userid=models.ForeignKey(Member, db_column='userid',
